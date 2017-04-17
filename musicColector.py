@@ -27,6 +27,10 @@ menu = '''Welcome in the CoolMusic! Choose the action:
         10) Find the longest-time album *
          0) Exit'''
 
+go = ''
+name = ['artist', 'name']
+information = ['year of release', 'genre', 'duration']
+template = name + information
 
 csv_file = open('music.txt')
 list_of_csv_lines = csv_file.readlines()
@@ -34,4 +38,33 @@ csv_file.close()
 lista = list_of_list_of_lines(list_of_csv_lines)
 
 music = tupling(lista)
+
+while go != '0':
+    print(menu)
+    go = input()
+    if go == '0':
+        continue 
+    if go == '1':
+        new_album = []
+        for prop in template:
+            ask = 'what is a ' + prop + ' of the album?'
+            propert = input(ask)
+            new_album += [propert]
+        new_album = [new_album]
+        new_album = tupling(new_album)
+        music += new_album
+
+    '''elif go == '2':
+    
+    elif go == '3':
+
+    elif go == '4':
+
+    elif go == '5':
+
+    elif go == '6':
+
+    elif go == '7':
+
+    elif go == '8':    '''
 print(music)
